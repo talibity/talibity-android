@@ -90,7 +90,8 @@ class FilterActivity : ComponentActivity() {
                     )
                 }
                 LazyColumn(
-                    modifier = Modifier.fillMaxWidth().wrapContentHeight().align(Alignment.Center),
+                    modifier = Modifier.fillMaxWidth().wrapContentHeight().align(Alignment.Center)
+                        .padding(50.dp),
                     verticalArrangement = Arrangement.spacedBy(30.dp),
                 ) {
                     items(itemsList) { items ->
