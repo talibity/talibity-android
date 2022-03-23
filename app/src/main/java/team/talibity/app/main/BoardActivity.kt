@@ -269,10 +269,16 @@ class BoardActivity : ComponentActivity() {
                                                 Text(
                                                     text = Random.nextInt(2, 10).toString(),
                                                     modifier = Modifier
-                                                        .padding(vertical = 4.dp, horizontal = 8.dp)
-                                                        .clip(RoundedCornerShape(5.dp))
-                                                        .background(color = PrimaryDark),
-                                                    style = LocalTextStyle.current.copy(fontSize = 13.sp)
+                                                        .clip(RoundedCornerShape(8.dp))
+                                                        .background(color = PrimaryDark)
+                                                        .padding(
+                                                            vertical = 1.dp,
+                                                            horizontal = 10.dp
+                                                        ),
+                                                    style = LocalTextStyle.current.copy(
+                                                        color = Color.White,
+                                                        fontSize = 10.sp
+                                                    )
                                                 )
                                             }
                                         }
@@ -319,7 +325,7 @@ class BoardActivity : ComponentActivity() {
                                         )
                                         Column(
                                             modifier = Modifier.padding(start = 16.dp),
-                                            verticalArrangement = Arrangement.spacedBy(10.dp)
+                                            verticalArrangement = Arrangement.spacedBy(3.dp)
                                         ) {
                                             Text(
                                                 text = "딸기 케익 클래스!",
