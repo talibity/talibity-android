@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -56,7 +57,8 @@ class FilterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SystemUiController(window).run {
-            setSystemBarsColor(Background)
+            setStatusBarColor(PrimaryDark)
+            setNavigationBarColor(Background)
         }
         setContent {
             val selectItems = remember { mutableStateListOf<Int>() }
@@ -88,8 +90,8 @@ class FilterActivity : ComponentActivity() {
                     )
                 }
                 LazyColumn(
-                    modifier = Modifier.fillMaxSize().align(Alignment.Center),
-                    verticalArrangement = Arrangement.spacedBy(30.dp)
+                    modifier = Modifier.fillMaxWidth().wrapContentHeight().align(Alignment.Center),
+                    verticalArrangement = Arrangement.spacedBy(30.dp),
                 ) {
                     items(itemsList) { items ->
                         Row(
