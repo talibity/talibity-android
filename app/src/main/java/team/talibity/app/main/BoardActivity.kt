@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -115,7 +116,8 @@ class BoardActivity : ComponentActivity() {
                                 Spacer(modifier = Modifier.height(30.dp))
                                 LazyColumn(
                                     modifier = Modifier.fillMaxSize(),
-                                    verticalArrangement = Arrangement.Center
+                                    verticalArrangement = Arrangement.Center,
+                                    contentPadding = PaddingValues(bottom = 30.dp)
                                 ) {
                                     items(10) {
                                         Row(
@@ -176,7 +178,10 @@ class BoardActivity : ComponentActivity() {
                             SideEffect {
                                 title = "채팅"
                             }
-                            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(bottom = 30.dp)
+                            ) {
                                 items(10) {
                                     Row(
                                         modifier = Modifier
@@ -224,7 +229,10 @@ class BoardActivity : ComponentActivity() {
                             SideEffect {
                                 title = "스크랩"
                             }
-                            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(bottom = 30.dp)
+                            ) {
                                 items(10) {
                                     Row(
                                         modifier = Modifier
@@ -293,7 +301,7 @@ class BoardActivity : ComponentActivity() {
                             FancyItem(
                                 id = 2,
                                 title = "스크랩",
-                                icon = R.drawable.ic_round_bookmark_24
+                                icon = R.drawable.ic_round_favorite_24
                             ),
                             FancyItem(
                                 id = 3,
