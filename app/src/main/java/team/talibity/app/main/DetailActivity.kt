@@ -25,8 +25,13 @@ import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,6 +51,7 @@ class DetailActivity : ComponentActivity() {
             setNavigationBarColor(Color.White)
         }
         setContent {
+            var like by remember { mutableStateOf(false) }
             Box(modifier = Modifier.fillMaxSize()) {
                 Row(
                     modifier = Modifier
@@ -104,7 +110,13 @@ class DetailActivity : ComponentActivity() {
                                 )
                             }
                             Icon(
-                                imageVector = Icons.Default.FavoriteBorder,
+                                modifier = Modifier.clickable {
+                                    like = !like
+                                },
+                                imageVector = when (like) {
+                                    true -> Icons.Default.Favorite
+                                    else -> Icons.Default.FavoriteBorder
+                                },
                                 contentDescription = null
                             )
                         }
