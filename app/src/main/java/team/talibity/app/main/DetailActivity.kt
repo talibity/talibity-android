@@ -34,11 +34,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import team.talibity.app.R
+import team.talibity.app.SystemUiController
 import team.talibity.app.ui.theme.PrimaryDark
 
 class DetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SystemUiController(window).run {
+            setStatusBarColor(PrimaryDark)
+            setNavigationBarColor(Color.White)
+        }
         setContent {
             Box(modifier = Modifier.fillMaxSize()) {
                 Row(

@@ -20,12 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import team.talibity.app.SystemUiController
 import team.talibity.app.main.BoardActivity
 import team.talibity.app.ui.theme.PrimaryDark
 
 class SelectLikeCategory : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SystemUiController(window).run {
+            setSystemBarsColor(Color.White)
+        }
         setContent {
             Box(modifier = Modifier.fillMaxSize()) {
                 Column(
@@ -50,7 +54,10 @@ class SelectLikeCategory : ComponentActivity() {
                         .align(Alignment.BottomCenter)
                         .padding(30.dp),
                     shape = RoundedCornerShape(30.dp),
-                    onClick = { startActivity(Intent(this@SelectLikeCategory, BoardActivity::class.java)) },
+                    onClick = {
+                        startActivity(Intent(this@SelectLikeCategory, BoardActivity::class.java))
+                        finish()
+                    },
                     colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                 ) {
                     Text(

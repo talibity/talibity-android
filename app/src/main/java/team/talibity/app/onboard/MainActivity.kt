@@ -22,12 +22,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import team.talibity.app.R
+import team.talibity.app.SystemUiController
 import team.talibity.app.ui.theme.Primary
 import team.talibity.app.ui.theme.PrimaryDark
+import team.talibity.app.ui.theme.Secondary
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SystemUiController(window).run {
+            setSystemBarsColor(Primary)
+        }
         setContent {
             Box(modifier = Modifier.fillMaxSize().background(color = Primary)) {
                 Icon(
@@ -47,6 +52,7 @@ class MainActivity : ComponentActivity() {
                                 WelcomeActivity::class.java
                             )
                         )
+                        finish()
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                 ) {

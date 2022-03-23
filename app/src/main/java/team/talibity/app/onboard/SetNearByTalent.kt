@@ -20,11 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import team.talibity.app.SystemUiController
 import team.talibity.app.ui.theme.PrimaryDark
+import team.talibity.app.ui.theme.Secondary
 
 class SetNearByTalent : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SystemUiController(window).run {
+            setSystemBarsColor(Color.White)
+        }
         setContent {
             Box(modifier = Modifier.fillMaxSize()) {
                 Column(modifier = Modifier.align(Alignment.TopStart).padding(30.dp)) {
@@ -49,6 +54,7 @@ class SetNearByTalent : ComponentActivity() {
                                 SelectLikeCategory::class.java
                             )
                         )
+                        finish()
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                 ) {

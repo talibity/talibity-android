@@ -29,12 +29,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import team.talibity.app.SystemUiController
 import team.talibity.app.ui.theme.PrimaryDark
 import team.talibity.app.ui.theme.Secondary
 
 class WelcomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SystemUiController(window).run {
+            setSystemBarsColor(Secondary)
+        }
         setContent {
             var field by remember { mutableStateOf("") }
 
@@ -67,6 +71,7 @@ class WelcomeActivity : ComponentActivity() {
                                 SetNearByTalent::class.java
                             )
                         )
+                        finish()
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                 ) {
