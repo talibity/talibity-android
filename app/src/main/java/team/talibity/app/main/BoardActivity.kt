@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalTextStyle
@@ -283,6 +284,69 @@ class BoardActivity : ComponentActivity() {
                         3 -> {
                             SideEffect {
                                 title = "내정보"
+                            }
+                            Column(
+                                modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.spacedBy(15.dp)
+                            ) {
+                                Text(
+                                    text = "내 정보",
+                                    style = LocalTextStyle.current.copy(
+                                        color = Color.Gray,
+                                        fontSize = 13.sp
+                                    )
+                                )
+                                Row(modifier = Modifier.height(50.dp)) {
+                                    Image(
+                                        painter = painterResource(R.drawable.me),
+                                        contentDescription = null,
+                                        modifier = Modifier.size(50.dp)
+                                    )
+                                    Column(
+                                        modifier = Modifier.fillMaxSize().padding(start = 16.dp),
+                                        verticalArrangement = Arrangement.SpaceAround
+                                    ) {
+                                        Text(text = "베토짜르트")
+                                        Text(
+                                            text = "#1234",
+                                            style = LocalTextStyle.current.copy(
+                                                color = Color.Gray,
+                                            )
+                                        )
+                                    }
+                                }
+                                Divider(color = PrimaryDark)
+                                Text(
+                                    text = "알림",
+                                    style = LocalTextStyle.current.copy(
+                                        color = Color.Gray,
+                                        fontSize = 13.sp
+                                    )
+                                )
+                                Text(text = "알림 설정")
+                                Text(text = "키워드 설정")
+                                Divider(color = PrimaryDark)
+                                Text(
+                                    text = "사용자 설정",
+                                    style = LocalTextStyle.current.copy(
+                                        color = Color.Gray,
+                                        fontSize = 13.sp
+                                    )
+                                )
+                                Text(text = "언어 설정")
+                                Text(text = "카테고리 설정")
+                                Text(text = "차단 관리")
+                                Divider(color = PrimaryDark)
+                                Text(
+                                    text = "기타",
+                                    style = LocalTextStyle.current.copy(
+                                        color = Color.Gray,
+                                        fontSize = 13.sp
+                                    )
+                                )
+                                Text(text = "로그아웃")
+                                Text(text = "탈퇴")
+                                Text(text = "앱정보")
                             }
                         }
                     }
