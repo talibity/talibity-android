@@ -384,7 +384,14 @@ class BoardActivity : ComponentActivity() {
                     FloatingActionButton(
                         modifier = Modifier.align(Alignment.BottomEnd)
                             .padding(bottom = 86.dp, end = 16.dp),
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@BoardActivity,
+                                    WriteActivity::class.java
+                                )
+                            )
+                        },
                         backgroundColor = PrimaryDark
                     ) {
                         Icon(
