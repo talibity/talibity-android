@@ -104,7 +104,7 @@ class BoardActivity : ComponentActivity() {
                                     onValueChange = { it2 -> searchField = it2 },
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .clip(RoundedCornerShape(5.dp)),
+                                        .clip(RoundedCornerShape(10.dp)),
                                     colors = TextFieldDefaults.textFieldColors(
                                         unfocusedIndicatorColor = GrayScale,
                                         focusedIndicatorColor = GrayScale,
