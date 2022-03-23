@@ -89,6 +89,9 @@ class BoardActivity : ComponentActivity() {
                         style = LocalTextStyle.current.copy(color = Color.White)
                     )
                     Icon(
+                        modifier = Modifier.clickable {
+                            startActivity(Intent(this@BoardActivity, FilterActivity::class.java))
+                        },
                         imageVector = Icons.Default.Menu,
                         contentDescription = null,
                         tint = if (state == 0) {
