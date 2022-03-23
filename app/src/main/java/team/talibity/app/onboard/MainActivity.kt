@@ -25,7 +25,6 @@ import team.talibity.app.R
 import team.talibity.app.SystemUiController
 import team.talibity.app.ui.theme.Primary
 import team.talibity.app.ui.theme.PrimaryDark
-import team.talibity.app.ui.theme.Secondary
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

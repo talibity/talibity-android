@@ -19,14 +19,11 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import team.talibity.app.SystemUiController
@@ -40,11 +37,10 @@ class WelcomeActivity : ComponentActivity() {
             setSystemBarsColor(Secondary)
         }
         setContent {
-            var field by remember { mutableStateOf("") }
-
             Box(modifier = Modifier.fillMaxSize().background(color = Secondary)) {
                 Column(
-                    modifier = Modifier.wrapContentSize().align(Alignment.TopCenter).padding(30.dp),
+                    modifier = Modifier.wrapContentSize().align(Alignment.TopCenter)
+                        .padding(top = 80.dp).padding(horizontal = 30.dp),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -52,11 +48,21 @@ class WelcomeActivity : ComponentActivity() {
                         text = "Welcome!",
                         style = LocalTextStyle.current.copy(
                             color = PrimaryDark,
-                            fontSize = 30.sp
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold
                         )
                     )
                     Spacer(modifier = Modifier.height(30.dp))
-                    TextField(value = field, onValueChange = { field = it })
+                    Box(
+                        modifier = Modifier.fillMaxWidth().height(50.dp).clip(
+                            RoundedCornerShape(8.dp)
+                        ).background(color = Color.LightGray),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "구글 기본 닉네임",
+                        )
+                    }
                     Spacer(modifier = Modifier.height(30.dp))
                     Text(text = "프로필 설정에서 변경이 가능합니다!", color = Color.Gray)
                 }

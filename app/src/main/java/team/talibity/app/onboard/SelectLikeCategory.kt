@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,16 +23,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import team.talibity.app.SystemUiController
 import team.talibity.app.main.BoardActivity
+import team.talibity.app.ui.theme.Background
 import team.talibity.app.ui.theme.PrimaryDark
 
 class SelectLikeCategory : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SystemUiController(window).run {
-            setSystemBarsColor(Color.White)
+            setSystemBarsColor(Background)
         }
         setContent {
-            Box(modifier = Modifier.fillMaxSize()) {
+            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
                 Column(
                     modifier = Modifier
                         .align(Alignment.TopStart)

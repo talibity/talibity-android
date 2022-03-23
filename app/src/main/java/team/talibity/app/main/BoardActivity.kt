@@ -49,6 +49,7 @@ import team.talibity.app.SystemUiController
 import team.talibity.app.fancybottombar.FancyBottomBar
 import team.talibity.app.fancybottombar.FancyColors
 import team.talibity.app.fancybottombar.FancyItem
+import team.talibity.app.ui.theme.Background
 import team.talibity.app.ui.theme.GrayScale
 import team.talibity.app.ui.theme.PrimaryDark
 
@@ -57,13 +58,13 @@ class BoardActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         SystemUiController(window).run {
             setStatusBarColor(PrimaryDark)
-            setNavigationBarColor(Color.White)
+            setNavigationBarColor(Background)
         }
         setContent {
             var state by remember { mutableStateOf(0) }
             var title by remember { mutableStateOf("홈") }
             var searchField by remember { mutableStateOf("") }
-            Box(modifier = Modifier.fillMaxSize()) {
+            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -377,7 +378,7 @@ class BoardActivity : ComponentActivity() {
                             state = item.id
                         },
                         selectedState = state,
-                        fancyColors = FancyColors(background = Color.White, primary = Color.White)
+                        fancyColors = FancyColors(background = Background, primary = Color.White)
                     )
                 }
                 if (state == 0) {
