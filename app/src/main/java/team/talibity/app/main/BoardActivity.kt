@@ -28,6 +28,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -103,28 +104,32 @@ class BoardActivity : ComponentActivity() {
                                     onValueChange = { it2 -> searchField = it2 },
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .clip(RoundedCornerShape(5.dp))
-                                        .background(color = GrayScale),
+                                        .clip(RoundedCornerShape(5.dp)),
+                                    colors = TextFieldDefaults.textFieldColors(
+                                        unfocusedIndicatorColor = GrayScale,
+                                        focusedIndicatorColor = GrayScale,
+                                        backgroundColor = GrayScale
+                                    ),
                                     placeholder = {
                                         Text(text = "근처의 Talent 검색")
                                     },
                                     trailingIcon = {
                                         Icon(
                                             imageVector = Icons.Default.Search,
-                                            contentDescription = null
+                                            contentDescription = null,
+                                            tint = PrimaryDark
                                         )
                                     }
                                 )
                                 Spacer(modifier = Modifier.height(30.dp))
                                 LazyColumn(
                                     modifier = Modifier.fillMaxSize(),
-                                    verticalArrangement = Arrangement.Center,
+                                    verticalArrangement = Arrangement.spacedBy(15.dp),
                                     contentPadding = PaddingValues(bottom = 30.dp)
                                 ) {
                                     items(10) {
                                         Row(
                                             modifier = Modifier
-                                                .padding(8.dp)
                                                 .clip(
                                                     RoundedCornerShape(10.dp)
                                                 )
@@ -144,13 +149,14 @@ class BoardActivity : ComponentActivity() {
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
                                             Image(
-                                                modifier = Modifier.size(75.dp),
+                                                modifier = Modifier.size(75.dp)
+                                                    .padding(start = 8.dp),
                                                 painter = painterResource(R.drawable.cake),
                                                 contentDescription = null
                                             )
                                             Column(
                                                 modifier = Modifier.padding(start = 16.dp),
-                                                verticalArrangement = Arrangement.spacedBy(10.dp)
+                                                verticalArrangement = Arrangement.SpaceAround
                                             ) {
                                                 Text(
                                                     text = "딸기 케익 클래스!",
@@ -182,12 +188,12 @@ class BoardActivity : ComponentActivity() {
                             }
                             LazyColumn(
                                 modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.spacedBy(15.dp),
                                 contentPadding = PaddingValues(bottom = 30.dp)
                             ) {
                                 items(10) {
                                     Row(
                                         modifier = Modifier
-                                            .padding(8.dp)
                                             .clip(
                                                 RoundedCornerShape(10.dp)
                                             )
@@ -206,7 +212,7 @@ class BoardActivity : ComponentActivity() {
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
                                         Image(
-                                            modifier = Modifier.size(75.dp),
+                                            modifier = Modifier.size(75.dp).padding(start = 8.dp),
                                             painter = painterResource(R.drawable.cake),
                                             contentDescription = null
                                         )
@@ -233,12 +239,12 @@ class BoardActivity : ComponentActivity() {
                             }
                             LazyColumn(
                                 modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.spacedBy(15.dp),
                                 contentPadding = PaddingValues(bottom = 30.dp)
                             ) {
                                 items(10) {
                                     Row(
                                         modifier = Modifier
-                                            .padding(8.dp)
                                             .clip(
                                                 RoundedCornerShape(10.dp)
                                             )
@@ -257,7 +263,7 @@ class BoardActivity : ComponentActivity() {
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
                                         Image(
-                                            modifier = Modifier.size(75.dp),
+                                            modifier = Modifier.size(75.dp).padding(start = 8.dp),
                                             painter = painterResource(R.drawable.cake),
                                             contentDescription = null
                                         )
