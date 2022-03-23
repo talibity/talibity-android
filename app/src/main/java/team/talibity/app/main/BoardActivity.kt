@@ -54,6 +54,7 @@ import team.talibity.app.fancybottombar.FancyItem
 import team.talibity.app.ui.theme.Background
 import team.talibity.app.ui.theme.GrayScale
 import team.talibity.app.ui.theme.PrimaryDark
+import kotlin.random.Random
 
 class BoardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,11 @@ class BoardActivity : ComponentActivity() {
             var state by remember { mutableStateOf(0) }
             var title by remember { mutableStateOf("홈") }
             var searchField by remember { mutableStateOf("") }
-            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = Background)
+            ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -167,7 +172,8 @@ class BoardActivity : ComponentActivity() {
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
                                             Image(
-                                                modifier = Modifier.size(75.dp)
+                                                modifier = Modifier
+                                                    .size(75.dp)
                                                     .padding(start = 8.dp),
                                                 painter = painterResource(R.drawable.cake),
                                                 contentDescription = null
@@ -212,25 +218,26 @@ class BoardActivity : ComponentActivity() {
                                 items(10) {
                                     Row(
                                         modifier = Modifier
-                                            .clip(
-                                                RoundedCornerShape(10.dp)
-                                            )
+                                            .clip(RoundedCornerShape(10.dp))
                                             .wrapContentHeight()
                                             .fillMaxWidth()
                                             .background(
                                                 color = Color.White
-                                            ).clickable {
-                                                startActivity(
+                                            )
+                                            .clickable {
+                                                /*startActivity(
                                                     Intent(
                                                         this@BoardActivity,
                                                         DetailActivity::class.java
                                                     )
-                                                )
+                                                )*/
                                             },
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
                                         Image(
-                                            modifier = Modifier.size(75.dp).padding(start = 8.dp),
+                                            modifier = Modifier
+                                                .size(75.dp)
+                                                .padding(start = 8.dp),
                                             painter = painterResource(R.drawable.cake),
                                             contentDescription = null
                                         )
@@ -238,14 +245,39 @@ class BoardActivity : ComponentActivity() {
                                             modifier = Modifier.padding(start = 16.dp),
                                             verticalArrangement = Arrangement.spacedBy(10.dp)
                                         ) {
-                                            Text(
-                                                text = "딸기가조아",
-                                                style = LocalTextStyle.current.copy(fontSize = 18.sp)
-                                            )
-                                            Text(
-                                                text = "네! 그럼 그 날 뵈어요~",
-                                                style = LocalTextStyle.current.copy(fontSize = 13.sp)
-                                            )
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.SpaceBetween
+                                            ) {
+                                                Text(
+                                                    text = "딸기가조아",
+                                                    style = LocalTextStyle.current.copy(fontSize = 18.sp)
+                                                )
+                                                Text(
+                                                    text = "방금 전",
+                                                    style = LocalTextStyle.current.copy(fontSize = 13.sp)
+                                                )
+                                            }
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.SpaceBetween
+                                            ) {
+                                                Text(
+                                                    text = "네! 그럼 그 날 뵈어요~",
+                                                    style = LocalTextStyle.current.copy(fontSize = 13.sp)
+                                                )
+                                                Text(
+                                                    text = Random.nextInt(2, 10).toString(),
+                                                    modifier = Modifier.padding(
+                                                        vertical = 2.dp,
+                                                        horizontal = 4.dp
+                                                    ).clip(RoundedCornerShape(5.dp))
+                                                        .background(color = PrimaryDark),
+                                                    style = LocalTextStyle.current.copy(
+                                                        fontSize = 13.sp
+                                                    )
+                                                )
+                                            }
                                         }
                                     }
                                 }
@@ -270,7 +302,8 @@ class BoardActivity : ComponentActivity() {
                                             .fillMaxWidth()
                                             .background(
                                                 color = Color.White
-                                            ).clickable {
+                                            )
+                                            .clickable {
                                                 startActivity(
                                                     Intent(
                                                         this@BoardActivity,
@@ -281,7 +314,9 @@ class BoardActivity : ComponentActivity() {
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
                                         Image(
-                                            modifier = Modifier.size(75.dp).padding(start = 8.dp),
+                                            modifier = Modifier
+                                                .size(75.dp)
+                                                .padding(start = 8.dp),
                                             painter = painterResource(R.drawable.cake),
                                             contentDescription = null
                                         )
@@ -328,7 +363,9 @@ class BoardActivity : ComponentActivity() {
                                         modifier = Modifier.size(50.dp)
                                     )
                                     Column(
-                                        modifier = Modifier.fillMaxSize().padding(start = 16.dp),
+                                        modifier = Modifier
+                                            .fillMaxSize()
+                                            .padding(start = 16.dp),
                                         verticalArrangement = Arrangement.SpaceAround
                                     ) {
                                         Text(text = "베토짜르트")
@@ -407,7 +444,8 @@ class BoardActivity : ComponentActivity() {
                 }
                 if (state == 0) {
                     FloatingActionButton(
-                        modifier = Modifier.align(Alignment.BottomEnd)
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
                             .padding(bottom = 86.dp, end = 16.dp),
                         onClick = {
                             startActivity(
