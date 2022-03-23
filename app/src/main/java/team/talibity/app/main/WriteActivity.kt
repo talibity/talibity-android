@@ -34,6 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.talibity.app.SystemUiController
+import team.talibity.app.ui.theme.Background
 import team.talibity.app.ui.theme.PrimaryDark
 
 class WriteActivity : ComponentActivity() {
@@ -41,13 +42,13 @@ class WriteActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         SystemUiController(window).run {
             setStatusBarColor(PrimaryDark)
-            setNavigationBarColor(Color.White)
+            setNavigationBarColor(Background)
         }
         setContent {
             var title by remember { mutableStateOf("") }
             var category by remember { mutableStateOf("") }
             var content by remember { mutableStateOf("") }
-            Box(modifier = Modifier.fillMaxSize()) {
+            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
