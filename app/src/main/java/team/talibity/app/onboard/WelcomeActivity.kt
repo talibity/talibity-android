@@ -1,0 +1,81 @@
+package team.talibity.app.onboard
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import team.talibity.app.ui.theme.PrimaryDark
+import team.talibity.app.ui.theme.Secondary
+
+class WelcomeActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            var field by remember { mutableStateOf("") }
+
+            Box(modifier = Modifier.fillMaxSize().background(color = Secondary)) {
+                Column(
+                    modifier = Modifier.wrapContentSize().align(Alignment.TopCenter).padding(30.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Welcome!",
+                        style = LocalTextStyle.current.copy(
+                            color = PrimaryDark,
+                            fontSize = 30.sp
+                        )
+                    )
+                    Spacer(modifier = Modifier.height(30.dp))
+                    TextField(value = field, onValueChange = { field = it })
+                    Spacer(modifier = Modifier.height(30.dp))
+                    Text(text = "프로필 설정에서 변경이 가능합니다!", color = Color.Gray)
+                }
+                Button(
+                    modifier = Modifier.fillMaxWidth().height(120.dp).align(Alignment.BottomCenter)
+                        .padding(30.dp),
+                    shape = RoundedCornerShape(30.dp),
+                    onClick = {
+                        startActivity(
+                            Intent(
+                                this@WelcomeActivity,
+                                SetNearByTalent::class.java
+                            )
+                        )
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
+                ) {
+                    Text(
+                        color = Color.White,
+                        text = "계속하기"
+                    )
+                }
+            }
+        }
+    }
+}
