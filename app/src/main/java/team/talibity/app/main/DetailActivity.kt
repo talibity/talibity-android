@@ -25,6 +25,7 @@ import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -84,17 +85,27 @@ class DetailActivity : ComponentActivity() {
                             painter = painterResource(R.drawable.cake),
                             contentDescription = null
                         )
-                        Column(
-                            modifier = Modifier.padding(start = 30.dp).fillMaxHeight(),
-                            verticalArrangement = Arrangement.SpaceAround
+                        Row(
+                            modifier = Modifier.fillMaxSize().padding(start = 16.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(
-                                text = "딸기가좋아",
-                                style = LocalTextStyle.current.copy(color = Color.Black)
-                            )
-                            Text(
-                                text = "평판 4/5",
-                                style = LocalTextStyle.current.copy(color = Color.Gray)
+                            Column(
+                                modifier = Modifier.fillMaxHeight(),
+                                verticalArrangement = Arrangement.SpaceAround
+                            ) {
+                                Text(
+                                    text = "딸기가좋아",
+                                    style = LocalTextStyle.current.copy(color = Color.Black)
+                                )
+                                Text(
+                                    text = "평판 4/5",
+                                    style = LocalTextStyle.current.copy(color = Color.Gray)
+                                )
+                            }
+                            Icon(
+                                imageVector = Icons.Default.FavoriteBorder,
+                                contentDescription = null
                             )
                         }
                     }
