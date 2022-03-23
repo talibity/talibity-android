@@ -32,6 +32,7 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -66,19 +67,33 @@ class BoardActivity : ComponentActivity() {
             var title by remember { mutableStateOf("홈") }
             var searchField by remember { mutableStateOf("") }
             Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
-                Box(
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(60.dp)
                         .clip(
                             RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp)
                         )
-                        .background(color = PrimaryDark),
-                    contentAlignment = Alignment.Center
+                        .background(color = PrimaryDark)
+                        .padding(horizontal = 30.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null,
+                        tint = PrimaryDark
+                    )
                     Text(
                         text = title,
                         style = LocalTextStyle.current.copy(color = Color.White)
+                    )
+                    Icon(
+                        imageVector = Icons.Default.Menu,
+                        contentDescription = null,
+                        tint = if (state == 0) {
+                            Color.White
+                        } else PrimaryDark
                     )
                 }
                 Crossfade(
