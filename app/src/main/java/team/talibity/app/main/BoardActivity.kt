@@ -283,10 +283,10 @@ class BoardActivity : ComponentActivity() {
                     FancyBottomBar(
                         modifier = Modifier.fillMaxSize().padding(bottom = 5.dp),
                         items = listOf(
-                            FancyItem(id = 0, title = "홈"),
-                            FancyItem(id = 1, title = "채팅"),
-                            FancyItem(id = 2, title = "스크랩"),
-                            FancyItem(id = 3, title = "내정보"),
+                            FancyItem(id = 0, title = "홈", icon = R.drawable.ic_round_home_24),
+                            FancyItem(id = 1, title = "채팅", icon = R.drawable.ic_round_chat_24),
+                            FancyItem(id = 2, title = "스크랩", icon = R.drawable.ic_round_bookmark_24),
+                            FancyItem(id = 3, title = "내정보", icon = R.drawable.ic_round_sentiment_satisfied_alt_24),
                         ),
                         onItemChanged = { item ->
                             state = item.id

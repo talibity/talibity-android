@@ -85,7 +85,7 @@ fun FancyBottomBar(
                         Icon(
                             painter = painterResource(item.icon),
                             contentDescription = null,
-                            tint = Color.White
+                            tint = fancyItemColor
                         )
                     }
                     if (item.title.isNotBlank()) {
