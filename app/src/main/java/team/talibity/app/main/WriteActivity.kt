@@ -13,6 +13,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -51,6 +52,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import team.talibity.app.SystemUiController
@@ -59,6 +61,7 @@ import team.talibity.app.ui.theme.GrayScale
 import team.talibity.app.ui.theme.PrimaryDark
 
 class WriteActivity : ComponentActivity() {
+    @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SystemUiController(window).run {
@@ -134,7 +137,7 @@ class WriteActivity : ComponentActivity() {
                     Box(modifier = Modifier.fillMaxWidth()) {
                         Button(
                             modifier = Modifier.align(Alignment.CenterEnd),
-                            onClick = { /*TODO*/ },
+                            onClick = { finish() },
                             colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                         ) {
                             Text(
@@ -196,7 +199,7 @@ class WriteActivity : ComponentActivity() {
                                     text = "사진 추가",
                                     style = LocalTextStyle.current.copy(
                                         color = PrimaryDark,
-                                        fontSize = 10.sp
+                                        fontSize = 13.sp
                                     )
                                 )
                             }
@@ -210,13 +213,14 @@ class WriteActivity : ComponentActivity() {
                                         shape = RoundedCornerShape(10.dp)
                                     ).clickable {
                                         takePhotoFromAlbumLauncher.launch(takePhotoFromAlbumIntent)
-                                    },
+                                    }.animateItemPlacement(),
                                 contentAlignment = Alignment.TopEnd
                             ) {
                                 Image(
                                     modifier = Modifier.fillMaxSize(),
                                     bitmap = bitmap.asImageBitmap(),
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    contentScale = ContentScale.FillBounds
                                 )
                                 Icon(
                                     modifier = Modifier.clickable {
@@ -224,7 +228,7 @@ class WriteActivity : ComponentActivity() {
                                     },
                                     imageVector = Icons.Default.Delete,
                                     contentDescription = null,
-                                    tint = GrayScale
+                                    tint = GrayScale,
                                 )
                             }
                         }
