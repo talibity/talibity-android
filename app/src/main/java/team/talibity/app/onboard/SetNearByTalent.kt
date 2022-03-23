@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,7 +44,7 @@ class SetNearByTalent : ComponentActivity() {
             setSystemBarsColor(Background)
         }
         setContent {
-            var value by remember { mutableStateOf(1f..10f) }
+            var value by remember { mutableStateOf(0f..1f) }
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -63,22 +64,28 @@ class SetNearByTalent : ComponentActivity() {
                         text = "현위치 기준으로 찾고자 하는 Talent의 위치를 정해주세요!",
                         style = LocalTextStyle.current.copy(color = Color.Gray, fontSize = 13.sp)
                     )
-                    Text(
-                        text = "${value.start}km ~ ${value.endInclusive}km",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        color = PrimaryDark
-                    )
-                    RangeSlider(
-                        colors = SliderDefaults.colors(
-                            thumbColor = Color.White,
-                            activeTrackColor = PrimaryDark,
-                            inactiveTrackColor = Secondary
-                        ),
-                        values = value, onValueChange = {
-                            value = it
-                        }
-                    )
+                    Column {
+                        Text(
+                            text = "${(value.start * 10).toInt()}km ~ ${(value.endInclusive * 10).toInt()}km",
+                            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+                            textAlign = TextAlign.Center,
+                            color = PrimaryDark,
+                            style = LocalTextStyle.current.copy(
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                        RangeSlider(
+                            colors = SliderDefaults.colors(
+                                thumbColor = Color.White,
+                                activeTrackColor = PrimaryDark,
+                                inactiveTrackColor = Secondary
+                            ),
+                            values = value, onValueChange = {
+                                value = it
+                            }
+                        )
+                    }
                 }
                 Button(
                     modifier = Modifier
