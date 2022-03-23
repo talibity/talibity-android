@@ -28,7 +28,7 @@
         <activity android:name=".onboard.SelectLikeCategory" />
         <activity android:name=".onboard.SetNearByTalent" />
         <activity android:name=".main.BoardActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".main.DetailActivity" />
     </application>
 
 </manifest>

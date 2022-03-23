@@ -42,7 +42,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import team.talibity.app.DetailActivity
 import team.talibity.app.R
 import team.talibity.app.fancybottombar.FancyBottomBar
 import team.talibity.app.fancybottombar.FancyColors

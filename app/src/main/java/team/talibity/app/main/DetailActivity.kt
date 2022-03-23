@@ -1,10 +1,11 @@
-package team.talibity.app
+package team.talibity.app.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
@@ -30,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import team.talibity.app.R
 import team.talibity.app.ui.theme.PrimaryDark
 
 class DetailActivity : ComponentActivity() {
@@ -52,7 +56,8 @@ class DetailActivity : ComponentActivity() {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = null,
-                        tint = Color.White
+                        tint = Color.White,
+                        modifier = Modifier.clickable { finish() }
                     )
                     Text(
                         text = "재능 보기",
@@ -128,6 +133,21 @@ class DetailActivity : ComponentActivity() {
                             )
                         }
                     }
+                }
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(120.dp)
+                        .align(Alignment.BottomCenter)
+                        .padding(30.dp),
+                    shape = RoundedCornerShape(30.dp),
+                    onClick = {},
+                    colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
+                ) {
+                    Text(
+                        color = Color.White,
+                        text = "채팅하기"
+                    )
                 }
             }
         }
