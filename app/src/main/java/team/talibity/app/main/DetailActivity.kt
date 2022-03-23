@@ -117,7 +117,8 @@ class DetailActivity : ComponentActivity() {
                                     true -> Icons.Default.Favorite
                                     else -> Icons.Default.FavoriteBorder
                                 },
-                                contentDescription = null
+                                contentDescription = null,
+                                tint = Color(219, 168, 193)
                             )
                         }
                     }
@@ -146,7 +147,7 @@ class DetailActivity : ComponentActivity() {
                     )
                     LazyRow(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(2.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         items(3) { int ->
                             val res = when (int) {
