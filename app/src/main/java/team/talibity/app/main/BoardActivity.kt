@@ -196,7 +196,7 @@ class BoardActivity : ComponentActivity() {
                                                         contentDescription = null
                                                     )
                                                     Text(
-                                                        text = "3",
+                                                        text = Random.nextInt(1, 9).toString(),
                                                         modifier = Modifier.padding(start = 8.dp)
                                                     )
                                                 }
