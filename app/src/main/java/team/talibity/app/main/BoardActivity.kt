@@ -242,7 +242,7 @@ class BoardActivity : ComponentActivity() {
                                             contentDescription = null
                                         )
                                         Column(
-                                            modifier = Modifier.padding(start = 16.dp),
+                                            modifier = Modifier.padding(start = 16.dp, end = 8.dp),
                                             verticalArrangement = Arrangement.spacedBy(10.dp)
                                         ) {
                                             Row(
@@ -268,14 +268,11 @@ class BoardActivity : ComponentActivity() {
                                                 )
                                                 Text(
                                                     text = Random.nextInt(2, 10).toString(),
-                                                    modifier = Modifier.padding(
-                                                        vertical = 2.dp,
-                                                        horizontal = 4.dp
-                                                    ).clip(RoundedCornerShape(5.dp))
+                                                    modifier = Modifier
+                                                        .padding(vertical = 4.dp, horizontal = 8.dp)
+                                                        .clip(RoundedCornerShape(5.dp))
                                                         .background(color = PrimaryDark),
-                                                    style = LocalTextStyle.current.copy(
-                                                        fontSize = 13.sp
-                                                    )
+                                                    style = LocalTextStyle.current.copy(fontSize = 13.sp)
                                                 )
                                             }
                                         }
