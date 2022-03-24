@@ -87,14 +87,18 @@ class SelectLikeCategory : ComponentActivity() {
                     ) {
                         Text(
                             text = "관심있는 Talent 카테고리 선택",
-                            style = LocalTextStyle.current.copy(color = Color.Black,
-                                fontSize = 20.sp)
+                            style = LocalTextStyle.current.copy(
+                                color = Color.Black,
+                                fontSize = 20.sp
+                            )
                         )
                         Text(
                             text = "최소 3개의 카테고리를 선택해 주세요!",
                             modifier = Modifier.padding(top = 30.dp),
-                            style = LocalTextStyle.current.copy(color = Color.Gray,
-                                fontSize = 13.sp)
+                            style = LocalTextStyle.current.copy(
+                                color = Color.Gray,
+                                fontSize = 13.sp
+                            )
                         )
                         LazyColumn(
                             modifier = Modifier.fillMaxSize().padding(top = 50.dp),
@@ -144,6 +148,7 @@ class SelectLikeCategory : ComponentActivity() {
                         }
                     }
                     Button(
+                        enabled = selectItems.size >= 3,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(120.dp)
@@ -151,8 +156,12 @@ class SelectLikeCategory : ComponentActivity() {
                             .padding(30.dp),
                         shape = RoundedCornerShape(30.dp),
                         onClick = {
-                            startActivity(Intent(this@SelectLikeCategory,
-                                BoardActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@SelectLikeCategory,
+                                    BoardActivity::class.java
+                                )
+                            )
                             finish()
                         },
                         colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
