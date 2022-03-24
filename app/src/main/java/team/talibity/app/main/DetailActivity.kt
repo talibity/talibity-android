@@ -153,7 +153,7 @@ class DetailActivity : ComponentActivity() {
 
                            + 제가 배워보고 싶은 건 음악인데, 그 중 피아노 연주에 관심이 많습니다!
 
-                        """.trimIndent()
+                            """.trimIndent()
                         )
                         LazyRow(
                             modifier = Modifier.fillMaxWidth(),

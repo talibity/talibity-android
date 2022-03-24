@@ -68,13 +68,17 @@ class SetNearByTalent : ComponentActivity() {
                     ) {
                         Text(
                             text = "주변 Talent 위치 설정",
-                            style = LocalTextStyle.current.copy(color = Color.Black,
-                                fontSize = 20.sp)
+                            style = LocalTextStyle.current.copy(
+                                color = Color.Black,
+                                fontSize = 20.sp
+                            )
                         )
                         Text(
                             text = "현위치 기준으로 찾고자 하는 Talent의 위치를 정해주세요!",
-                            style = LocalTextStyle.current.copy(color = Color.Gray,
-                                fontSize = 13.sp)
+                            style = LocalTextStyle.current.copy(
+                                color = Color.Gray,
+                                fontSize = 13.sp
+                            )
                         )
                         Column {
                             Text(

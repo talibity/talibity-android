@@ -50,6 +50,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.random.Random
 import team.talibity.app.R
 import team.talibity.app.SystemUiController
 import team.talibity.app.fancybottombar.FancyBottomBar
@@ -58,7 +59,6 @@ import team.talibity.app.fancybottombar.FancyItem
 import team.talibity.app.ui.theme.Background
 import team.talibity.app.ui.theme.GrayScale
 import team.talibity.app.ui.theme.PrimaryDark
-import kotlin.random.Random
 
 class BoardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
