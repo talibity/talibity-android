@@ -182,7 +182,7 @@ class BoardActivity : ComponentActivity() {
                                                                 DetailActivity::class.java
                                                             )
                                                         )
-                                                    },
+                                                    }.padding(4.dp),
                                                 verticalAlignment = Alignment.CenterVertically
                                             ) {
                                                 Image(
@@ -245,7 +245,7 @@ class BoardActivity : ComponentActivity() {
                                                         DetailActivity::class.java
                                                     )
                                                 )*/
-                                                },
+                                                }.padding(4.dp),
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
                                             Image(
@@ -330,7 +330,7 @@ class BoardActivity : ComponentActivity() {
                                                             DetailActivity::class.java
                                                         )
                                                     )
-                                                },
+                                                }.padding(4.dp),
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
                                             Image(
