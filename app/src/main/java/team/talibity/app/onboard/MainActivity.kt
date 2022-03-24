@@ -15,11 +15,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import team.talibity.app.R
 import team.talibity.app.SystemUiController
@@ -33,32 +38,39 @@ class MainActivity : ComponentActivity() {
             setSystemBarsColor(Primary)
         }
         setContent {
-            Box(modifier = Modifier.fillMaxSize().background(color = Primary)) {
-                Icon(
-                    modifier = Modifier.align(Alignment.Center).size(200.dp),
-                    painter = painterResource(R.drawable.logo),
-                    contentDescription = null,
-                    tint = Color.Unspecified
+            CompositionLocalProvider(
+                LocalTextStyle provides TextStyle.Default.copy(
+                    fontFamily = FontFamily(Font((R.font.notosans_r)))
                 )
-                Button(
-                    modifier = Modifier.fillMaxWidth().height(120.dp).align(Alignment.BottomCenter)
-                        .padding(30.dp),
-                    shape = RoundedCornerShape(30.dp),
-                    onClick = {
-                        startActivity(
-                            Intent(
-                                this@MainActivity,
-                                WelcomeActivity::class.java
-                            )
-                        )
-                        finish()
-                    },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
-                ) {
-                    Text(
-                        color = Color.White,
-                        text = "Google 로 로그인 하기"
+            ) {
+                Box(modifier = Modifier.fillMaxSize().background(color = Primary)) {
+                    Icon(
+                        modifier = Modifier.align(Alignment.Center).size(200.dp),
+                        painter = painterResource(R.drawable.logo),
+                        contentDescription = null,
+                        tint = Color.Unspecified
                     )
+                    Button(
+                        modifier = Modifier.fillMaxWidth().height(120.dp)
+                            .align(Alignment.BottomCenter)
+                            .padding(30.dp),
+                        shape = RoundedCornerShape(30.dp),
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity,
+                                    WelcomeActivity::class.java
+                                )
+                            )
+                            finish()
+                        },
+                        colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
+                    ) {
+                        Text(
+                            color = Color.White,
+                            text = "Google 로 로그인 하기"
+                        )
+                    }
                 }
             }
         }

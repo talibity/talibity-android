@@ -25,6 +25,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -33,6 +34,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import team.talibity.app.R
@@ -69,86 +73,95 @@ class SelectLikeCategory : ComponentActivity() {
             setSystemBarsColor(Background)
         }
         setContent {
-            val selectItems = remember { mutableStateListOf<Int>() }
-            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .padding(30.dp)
-                ) {
-                    Text(
-                        text = "관심있는 Talent 카테고리 선택",
-                        style = LocalTextStyle.current.copy(color = Color.Black, fontSize = 20.sp)
-                    )
-                    Text(
-                        text = "최소 3개의 카테고리를 선택해 주세요!",
-                        modifier = Modifier.padding(top = 30.dp),
-                        style = LocalTextStyle.current.copy(color = Color.Gray, fontSize = 13.sp)
-                    )
-                    LazyColumn(
-                        modifier = Modifier.fillMaxSize().padding(top = 50.dp),
-                        verticalArrangement = Arrangement.spacedBy(30.dp)
+            CompositionLocalProvider(
+                LocalTextStyle provides TextStyle.Default.copy(
+                    fontFamily = FontFamily(Font((R.font.notosans_r)))
+                )
+            ) {
+                val selectItems = remember { mutableStateListOf<Int>() }
+                Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.TopStart)
+                            .padding(30.dp)
                     ) {
-                        items(itemsList) { items ->
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                items.forEach { item ->
-                                    Column(
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        Box(
-                                            modifier = Modifier.size(65.dp).clip(CircleShape)
-                                                .background(
-                                                    color = animateColorAsState(
-                                                        when (selectItems.contains(item.id)) {
-                                                            true -> Primary
-                                                            else -> Color.White
-                                                        }
-                                                    ).value
-                                                ).clickable {
-                                                    if (selectItems.contains(item.id)) {
-                                                        selectItems.remove(item.id)
-                                                    } else {
-                                                        selectItems.add(item.id)
-                                                    }
-                                                }
+                        Text(
+                            text = "관심있는 Talent 카테고리 선택",
+                            style = LocalTextStyle.current.copy(color = Color.Black,
+                                fontSize = 20.sp)
+                        )
+                        Text(
+                            text = "최소 3개의 카테고리를 선택해 주세요!",
+                            modifier = Modifier.padding(top = 30.dp),
+                            style = LocalTextStyle.current.copy(color = Color.Gray,
+                                fontSize = 13.sp)
+                        )
+                        LazyColumn(
+                            modifier = Modifier.fillMaxSize().padding(top = 50.dp),
+                            verticalArrangement = Arrangement.spacedBy(30.dp)
+                        ) {
+                            items(itemsList) { items ->
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    items.forEach { item ->
+                                        Column(
+                                            horizontalAlignment = Alignment.CenterHorizontally
                                         ) {
-                                            Icon(
-                                                modifier = Modifier.fillMaxSize(),
-                                                painter = painterResource(item.icon),
-                                                contentDescription = null,
-                                                tint = Color.Unspecified
+                                            Box(
+                                                modifier = Modifier.size(65.dp).clip(CircleShape)
+                                                    .background(
+                                                        color = animateColorAsState(
+                                                            when (selectItems.contains(item.id)) {
+                                                                true -> Primary
+                                                                else -> Color.White
+                                                            }
+                                                        ).value
+                                                    ).clickable {
+                                                        if (selectItems.contains(item.id)) {
+                                                            selectItems.remove(item.id)
+                                                        } else {
+                                                            selectItems.add(item.id)
+                                                        }
+                                                    }
+                                            ) {
+                                                Icon(
+                                                    modifier = Modifier.fillMaxSize(),
+                                                    painter = painterResource(item.icon),
+                                                    contentDescription = null,
+                                                    tint = Color.Unspecified
+                                                )
+                                            }
+                                            Text(
+                                                text = item.text,
+                                                modifier = Modifier.padding(top = 5.dp)
                                             )
                                         }
-                                        Text(
-                                            text = item.text,
-                                            modifier = Modifier.padding(top = 5.dp)
-                                        )
                                     }
                                 }
                             }
                         }
                     }
-                }
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(120.dp)
-                        .align(Alignment.BottomCenter)
-                        .padding(30.dp),
-                    shape = RoundedCornerShape(30.dp),
-                    onClick = {
-                        startActivity(Intent(this@SelectLikeCategory, BoardActivity::class.java))
-                        finish()
-                    },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
-                ) {
-                    Text(
-                        color = Color.White,
-                        text = "계속하기"
-                    )
+                    Button(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(120.dp)
+                            .align(Alignment.BottomCenter)
+                            .padding(30.dp),
+                        shape = RoundedCornerShape(30.dp),
+                        onClick = {
+                            startActivity(Intent(this@SelectLikeCategory,
+                                BoardActivity::class.java))
+                            finish()
+                        },
+                        colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
+                    ) {
+                        Text(
+                            color = Color.White,
+                            text = "계속하기"
+                        )
+                    }
                 }
             }
         }

@@ -26,6 +26,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -33,6 +34,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import team.talibity.app.R
 import team.talibity.app.SystemUiController
@@ -61,76 +65,83 @@ class FilterActivity : ComponentActivity() {
             setNavigationBarColor(Background)
         }
         setContent {
-            val selectItems = remember { mutableStateListOf<Int>() }
-            Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(60.dp)
-                        .clip(RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp))
-                        .background(color = PrimaryDark)
-                        .padding(horizontal = 30.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.clickable { finish() }
-                    )
-                    Text(
-                        text = "카테고리",
-                        style = LocalTextStyle.current.copy(color = Color.White)
-                    )
-                    Icon(
-                        imageVector = Icons.Default.Menu,
-                        contentDescription = null,
-                        tint = PrimaryDark
-                    )
-                }
-                LazyColumn(
-                    modifier = Modifier.fillMaxWidth().wrapContentHeight().align(Alignment.Center)
-                        .padding(50.dp),
-                    verticalArrangement = Arrangement.spacedBy(30.dp),
-                ) {
-                    items(itemsList) { items ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            items.forEach { item ->
-                                Column(
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    Box(
-                                        modifier = Modifier.size(65.dp).clip(CircleShape)
-                                            .background(
-                                                color = animateColorAsState(
-                                                    when (selectItems.contains(item.id)) {
-                                                        true -> Primary
-                                                        else -> Color.White
-                                                    }
-                                                ).value
-                                            ).clickable {
-                                                if (selectItems.contains(item.id)) {
-                                                    selectItems.remove(item.id)
-                                                } else {
-                                                    selectItems.add(item.id)
-                                                }
-                                            }
+            CompositionLocalProvider(
+                LocalTextStyle provides TextStyle.Default.copy(
+                    fontFamily = FontFamily(Font((R.font.notosans_r)))
+                )
+            ) {
+                val selectItems = remember { mutableStateListOf<Int>() }
+                Box(modifier = Modifier.fillMaxSize().background(color = Background)) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(60.dp)
+                            .clip(RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp))
+                            .background(color = PrimaryDark)
+                            .padding(horizontal = 30.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.clickable { finish() }
+                        )
+                        Text(
+                            text = "카테고리",
+                            style = LocalTextStyle.current.copy(color = Color.White)
+                        )
+                        Icon(
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = null,
+                            tint = PrimaryDark
+                        )
+                    }
+                    LazyColumn(
+                        modifier = Modifier.fillMaxWidth().wrapContentHeight()
+                            .align(Alignment.Center)
+                            .padding(50.dp),
+                        verticalArrangement = Arrangement.spacedBy(30.dp),
+                    ) {
+                        items(itemsList) { items ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                items.forEach { item ->
+                                    Column(
+                                        horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
-                                        Icon(
-                                            modifier = Modifier.fillMaxSize(),
-                                            painter = painterResource(item.icon),
-                                            contentDescription = null,
-                                            tint = Color.Unspecified
+                                        Box(
+                                            modifier = Modifier.size(65.dp).clip(CircleShape)
+                                                .background(
+                                                    color = animateColorAsState(
+                                                        when (selectItems.contains(item.id)) {
+                                                            true -> Primary
+                                                            else -> Color.White
+                                                        }
+                                                    ).value
+                                                ).clickable {
+                                                    if (selectItems.contains(item.id)) {
+                                                        selectItems.remove(item.id)
+                                                    } else {
+                                                        selectItems.add(item.id)
+                                                    }
+                                                }
+                                        ) {
+                                            Icon(
+                                                modifier = Modifier.fillMaxSize(),
+                                                painter = painterResource(item.icon),
+                                                contentDescription = null,
+                                                tint = Color.Unspecified
+                                            )
+                                        }
+                                        Text(
+                                            text = item.text,
+                                            modifier = Modifier.padding(top = 5.dp)
                                         )
                                     }
-                                    Text(
-                                        text = item.text,
-                                        modifier = Modifier.padding(top = 5.dp)
-                                    )
                                 }
                             }
                         }
