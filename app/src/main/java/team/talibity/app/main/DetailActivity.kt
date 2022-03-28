@@ -147,7 +147,7 @@ class DetailActivity : ComponentActivity() {
                         )
                         Text(
                             text = """
-                           I'm looking for someone who wants to make strawberry cake with me! The location is 수정.
+                           I'm looking for someone who wants to make strawberry cake with me! The location is strawberry Baking Lab.
                            We prepared a recipe that even beginners can follow easily.
                            Let's discuss the date and time!
 
