@@ -127,7 +127,7 @@ class WriteActivity : ComponentActivity() {
                             modifier = Modifier.clickable { finish() }
                         )
                         Text(
-                            text = "재능 글쓰기",
+                            text = "Writing My Talent",
                             style = LocalTextStyle.current.copy(color = Color.White)
                         )
                         Icon(
@@ -150,7 +150,7 @@ class WriteActivity : ComponentActivity() {
                                 colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                             ) {
                                 Text(
-                                    text = "등록",
+                                    text = "Post",
                                     style = LocalTextStyle.current.copy(color = Color.White)
                                 )
                             }
@@ -160,7 +160,7 @@ class WriteActivity : ComponentActivity() {
                             value = title,
                             onValueChange = { title = it },
                             placeholder = {
-                                Text(text = "제목")
+                                Text(text = "Title")
                             },
                             colors = TextFieldDefaults.outlinedTextFieldColors(
                                 focusedBorderColor = PrimaryDark
@@ -171,7 +171,7 @@ class WriteActivity : ComponentActivity() {
                             value = category,
                             onValueChange = { category = it },
                             placeholder = {
-                                Text(text = "카테고리")
+                                Text(text = "Category")
                             },
                             colors = TextFieldDefaults.outlinedTextFieldColors(
                                 focusedBorderColor = PrimaryDark
@@ -182,7 +182,7 @@ class WriteActivity : ComponentActivity() {
                             value = content,
                             onValueChange = { content = it },
                             placeholder = {
-                                Text(text = "내용")
+                                Text(text = "Content")
                             },
                             colors = TextFieldDefaults.outlinedTextFieldColors(
                                 focusedBorderColor = PrimaryDark
@@ -207,7 +207,7 @@ class WriteActivity : ComponentActivity() {
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Text(
-                                        text = "사진 추가",
+                                        text = "Add Photo",
                                         style = LocalTextStyle.current.copy(
                                             color = PrimaryDark,
                                             fontSize = 13.sp
