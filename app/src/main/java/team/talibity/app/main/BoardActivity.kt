@@ -222,7 +222,7 @@ class BoardActivity : ComponentActivity() {
                             }
                             1 -> {
                                 SideEffect {
-                                    title = "채팅"
+                                    title = "Chatting"
                                 }
                                 LazyColumn(
                                     modifier = Modifier.fillMaxSize(),
@@ -451,7 +451,7 @@ class BoardActivity : ComponentActivity() {
                                 ),
                                 FancyItem(
                                     id = 3,
-                                    title = "My",
+                                    title = "My Info",
                                     icon = R.drawable.ic_round_sentiment_satisfied_alt_24
                                 ),
                             ),
