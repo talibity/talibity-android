@@ -82,7 +82,7 @@ class DetailActivity : ComponentActivity() {
                             modifier = Modifier.clickable { finish() }
                         )
                         Text(
-                            text = "재능 보기",
+                            text = "Show Talent",
                             style = LocalTextStyle.current.copy(color = Color.White)
                         )
                         Icon(
@@ -111,11 +111,11 @@ class DetailActivity : ComponentActivity() {
                                     verticalArrangement = Arrangement.SpaceAround
                                 ) {
                                     Text(
-                                        text = "딸기가좋아",
+                                        text = "berrylov",
                                         style = LocalTextStyle.current.copy(color = Color.Black)
                                     )
                                     Text(
-                                        text = "평판 4/5",
+                                        text = "Star 4/5",
                                         style = LocalTextStyle.current.copy(color = Color.Gray)
                                     )
                                 }
@@ -133,25 +133,25 @@ class DetailActivity : ComponentActivity() {
                             }
                         }
                         Text(
-                            text = "딸기 케익 클래스!",
+                            text = "Strawberry Cake Class!",
                             style = LocalTextStyle.current.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black
                             )
                         )
                         Text(
-                            text = "카테고리: 요리 - 2시간 전",
+                            text = "Category: Baking - 2 hours ago",
                             style = LocalTextStyle.current.copy(
                                 color = Color.Gray
                             )
                         )
                         Text(
                             text = """
-                           딸기 케익 함께 만드실 분 찾습니다! 장소는 베리베리베이킹랩입니다.
-                           초보자분들도 쉽게 따라할 수 있는 레시피로 준비했으니 채팅으로 
-                           날짜와 시간 논의 해봐요!
+                           I'm looking for someone who wants to make strawberry cake with me! The location is 수정.
+                           We prepared a recipe that even beginners can follow easily.
+                           Let's discuss the date and time!
 
-                           + 제가 배워보고 싶은 건 음악인데, 그 중 피아노 연주에 관심이 많습니다!
+                           + What I want to learn is music, but I'm very interested in playing the piano!
 
                             """.trimIndent()
                         )
@@ -185,7 +185,7 @@ class DetailActivity : ComponentActivity() {
                     ) {
                         Text(
                             color = Color.White,
-                            text = "채팅하기"
+                            text = "Chatting"
                         )
                     }
                 }
