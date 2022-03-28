@@ -74,7 +74,10 @@ class WelcomeActivity : ComponentActivity() {
                             )
                         }
                         Spacer(modifier = Modifier.height(30.dp))
-                        Text(text = "You can change nickname at profile setting", color = Color.Gray)
+                        Text(
+                            text = "You can change nickname at profile setting",
+                            color = Color.Gray
+                        )
                     }
                     Button(
                         modifier = Modifier.fillMaxWidth().height(120.dp)
