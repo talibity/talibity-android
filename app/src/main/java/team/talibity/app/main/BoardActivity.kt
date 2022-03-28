@@ -148,7 +148,7 @@ class BoardActivity : ComponentActivity() {
                                             backgroundColor = GrayScale
                                         ),
                                         placeholder = {
-                                            Text(text = "근처의 Talent 검색")
+                                            Text(text = "nearby Talent search")
                                         },
                                         trailingIcon = {
                                             Icon(
@@ -197,11 +197,11 @@ class BoardActivity : ComponentActivity() {
                                                     verticalArrangement = Arrangement.SpaceAround
                                                 ) {
                                                     Text(
-                                                        text = "딸기 케익 클래스!",
+                                                        text = "strawberry cake class!",
                                                         style = LocalTextStyle.current.copy(fontSize = 18.sp)
                                                     )
                                                     Text(
-                                                        text = "딸기베리베이킹랩",
+                                                        text = "strawberry Baking Lab",
                                                         style = LocalTextStyle.current.copy(fontSize = 13.sp)
                                                     )
                                                     Row {
@@ -267,11 +267,11 @@ class BoardActivity : ComponentActivity() {
                                                     horizontalArrangement = Arrangement.SpaceBetween
                                                 ) {
                                                     Text(
-                                                        text = "딸기가조아",
+                                                        text = "berrylov",
                                                         style = LocalTextStyle.current.copy(fontSize = 18.sp)
                                                     )
                                                     Text(
-                                                        text = "방금 전",
+                                                        text = "a moment ago",
                                                         style = LocalTextStyle.current.copy(fontSize = 13.sp)
                                                     )
                                                 }
@@ -280,7 +280,7 @@ class BoardActivity : ComponentActivity() {
                                                     horizontalArrangement = Arrangement.SpaceBetween
                                                 ) {
                                                     Text(
-                                                        text = "네! 그럼 그 날 뵈어요~",
+                                                        text = "Okay! See you then :)",
                                                         style = LocalTextStyle.current.copy(fontSize = 13.sp)
                                                     )
                                                     Text(
@@ -305,7 +305,7 @@ class BoardActivity : ComponentActivity() {
                             }
                             2 -> {
                                 SideEffect {
-                                    title = "스크랩"
+                                    title = "clipping"
                                 }
                                 LazyColumn(
                                     modifier = Modifier.fillMaxSize(),
@@ -345,11 +345,11 @@ class BoardActivity : ComponentActivity() {
                                                 verticalArrangement = Arrangement.spacedBy(3.dp)
                                             ) {
                                                 Text(
-                                                    text = "딸기 케익 클래스!",
+                                                    text = "strawberry cake class!",
                                                     style = LocalTextStyle.current.copy(fontSize = 18.sp)
                                                 )
                                                 Text(
-                                                    text = "딸기베리베이킹랩",
+                                                    text = "strawberry Baking Lab",
                                                     style = LocalTextStyle.current.copy(fontSize = 13.sp)
                                                 )
                                                 Text(
@@ -363,14 +363,14 @@ class BoardActivity : ComponentActivity() {
                             }
                             3 -> {
                                 SideEffect {
-                                    title = "내정보"
+                                    title = "My Info"
                                 }
                                 Column(
                                     modifier = Modifier.fillMaxSize(),
                                     verticalArrangement = Arrangement.spacedBy(15.dp)
                                 ) {
                                     Text(
-                                        text = "내 정보",
+                                        text = "My Info",
                                         style = LocalTextStyle.current.copy(
                                             color = Color.Gray,
                                             fontSize = 13.sp
@@ -388,7 +388,7 @@ class BoardActivity : ComponentActivity() {
                                                 .padding(start = 16.dp),
                                             verticalArrangement = Arrangement.SpaceAround
                                         ) {
-                                            Text(text = "베토짜르트")
+                                            Text(text = "betozzart")
                                             Text(
                                                 text = "#1234",
                                                 style = LocalTextStyle.current.copy(
@@ -399,36 +399,36 @@ class BoardActivity : ComponentActivity() {
                                     }
                                     Divider(color = PrimaryDark)
                                     Text(
-                                        text = "알림",
+                                        text = "Notification",
                                         style = LocalTextStyle.current.copy(
                                             color = Color.Gray,
                                             fontSize = 13.sp
                                         )
                                     )
-                                    Text(text = "알림 설정")
-                                    Text(text = "키워드 설정")
+                                    Text(text = "Notification Setting")
+                                    Text(text = "Keyword Setting")
                                     Divider(color = PrimaryDark)
                                     Text(
-                                        text = "사용자 설정",
+                                        text = "User Setting",
                                         style = LocalTextStyle.current.copy(
                                             color = Color.Gray,
                                             fontSize = 13.sp
                                         )
                                     )
-                                    Text(text = "언어 설정")
-                                    Text(text = "카테고리 설정")
-                                    Text(text = "차단 관리")
+                                    Text(text = "Language Setting")
+                                    Text(text = "Category Setting")
+                                    Text(text = "blocking management")
                                     Divider(color = PrimaryDark)
                                     Text(
-                                        text = "기타",
+                                        text = "Etc.",
                                         style = LocalTextStyle.current.copy(
                                             color = Color.Gray,
                                             fontSize = 13.sp
                                         )
                                     )
-                                    Text(text = "로그아웃")
-                                    Text(text = "탈퇴")
-                                    Text(text = "앱정보")
+                                    Text(text = "Logout")
+                                    Text(text = "Withdrawal")
+                                    Text(text = "App Info")
                                 }
                             }
                         }
@@ -442,16 +442,16 @@ class BoardActivity : ComponentActivity() {
                         FancyBottomBar(
                             modifier = Modifier.fillMaxSize(),
                             items = listOf(
-                                FancyItem(id = 0, title = "홈", icon = R.drawable.ic_round_home_24),
-                                FancyItem(id = 1, title = "채팅", icon = R.drawable.ic_round_chat_24),
+                                FancyItem(id = 0, title = "Home", icon = R.drawable.ic_round_home_24),
+                                FancyItem(id = 1, title = "Chatting", icon = R.drawable.ic_round_chat_24),
                                 FancyItem(
                                     id = 2,
-                                    title = "스크랩",
+                                    title = "Clipping",
                                     icon = R.drawable.ic_round_favorite_24
                                 ),
                                 FancyItem(
                                     id = 3,
-                                    title = "내정보",
+                                    title = "My",
                                     icon = R.drawable.ic_round_sentiment_satisfied_alt_24
                                 ),
                             ),
