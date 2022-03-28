@@ -70,11 +70,11 @@ class WelcomeActivity : ComponentActivity() {
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "구글 기본 닉네임",
+                                text = "Google default nickname",
                             )
                         }
                         Spacer(modifier = Modifier.height(30.dp))
-                        Text(text = "프로필 설정에서 변경이 가능합니다!", color = Color.Gray)
+                        Text(text = "You can change nickname at profile setting", color = Color.Gray)
                     }
                     Button(
                         modifier = Modifier.fillMaxWidth().height(120.dp)
@@ -93,8 +93,8 @@ class WelcomeActivity : ComponentActivity() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                     ) {
                         Text(
-                            color = Color.White,
-                            text = "계속하기"
+                            style = LocalTextStyle.current.copy(color = Color.White),
+                            text = "Continue"
                         )
                     }
                 }

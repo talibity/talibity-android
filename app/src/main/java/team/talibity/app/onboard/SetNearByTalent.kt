@@ -67,14 +67,14 @@ class SetNearByTalent : ComponentActivity() {
                         verticalArrangement = Arrangement.spacedBy(30.dp)
                     ) {
                         Text(
-                            text = "주변 Talent 위치 설정",
+                            text = "Set nearby Talent locations",
                             style = LocalTextStyle.current.copy(
                                 color = Color.Black,
                                 fontSize = 20.sp
                             )
                         )
                         Text(
-                            text = "현위치 기준으로 찾고자 하는 Talent의 위치를 정해주세요!",
+                            text = "Please determine the location of the Talent you want to find based on your current location!",
                             style = LocalTextStyle.current.copy(
                                 color = Color.Gray,
                                 fontSize = 13.sp
@@ -122,8 +122,8 @@ class SetNearByTalent : ComponentActivity() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                     ) {
                         Text(
-                            color = Color.White,
-                            text = "계속하기"
+                            style = LocalTextStyle.current.copy(color = Color.White),
+                            text = "Continue"
                         )
                     }
                 }

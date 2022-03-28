@@ -56,15 +56,15 @@ data class Item(
 class SelectLikeCategory : ComponentActivity() {
 
     private val itemsList = listOf(
-        Item(1, "운동", R.drawable.awsersize),
-        Item(2, "게임", R.drawable.game),
-        Item(3, "요리", R.drawable.cook),
-        Item(4, "음악", R.drawable.music),
-        Item(5, "학문", R.drawable.book),
-        Item(6, "디자인", R.drawable.design),
-        Item(7, "프로그래밍", R.drawable.dev),
-        Item(8, "데이터 사이언스", R.drawable.data),
-        Item(9, "커리어", R.drawable.car)
+        Item(1, "Exercise", R.drawable.awsersize),
+        Item(2, "Game", R.drawable.game),
+        Item(3, "Cooking", R.drawable.cook),
+        Item(4, "Music", R.drawable.music),
+        Item(5, "Study", R.drawable.book),
+        Item(6, "Design", R.drawable.design),
+        Item(7, "Programming", R.drawable.dev),
+        Item(8, "Data Science", R.drawable.data),
+        Item(9, "Career", R.drawable.car)
     ).chunked(3)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,14 +86,14 @@ class SelectLikeCategory : ComponentActivity() {
                             .padding(30.dp)
                     ) {
                         Text(
-                            text = "관심있는 Talent 카테고리 선택",
+                            text = "Select the Talent category you are interested in",
                             style = LocalTextStyle.current.copy(
                                 color = Color.Black,
                                 fontSize = 20.sp
                             )
                         )
                         Text(
-                            text = "최소 3개의 카테고리를 선택해 주세요!",
+                            text = "Please select at least 3 categories!",
                             modifier = Modifier.padding(top = 30.dp),
                             style = LocalTextStyle.current.copy(
                                 color = Color.Gray,
@@ -167,8 +167,8 @@ class SelectLikeCategory : ComponentActivity() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                     ) {
                         Text(
-                            color = Color.White,
-                            text = "계속하기"
+                            style = LocalTextStyle.current.copy(color = Color.White),
+                            text = "Continue"
                         )
                     }
                 }

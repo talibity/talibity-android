@@ -74,7 +74,7 @@ class BoardActivity : ComponentActivity() {
                 )
             ) {
                 var state by remember { mutableStateOf(0) }
-                var title by remember { mutableStateOf("홈") }
+                var title by remember { mutableStateOf("Home") }
                 var searchField by remember { mutableStateOf("") }
                 Box(
                     modifier = Modifier
@@ -130,7 +130,7 @@ class BoardActivity : ComponentActivity() {
                         when (it) {
                             0 -> {
                                 SideEffect {
-                                    title = "홈"
+                                    title = "Home"
                                 }
                                 Column(
                                     modifier = Modifier

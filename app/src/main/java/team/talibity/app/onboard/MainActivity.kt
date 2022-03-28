@@ -85,8 +85,8 @@ class MainActivity : ComponentActivity() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = PrimaryDark)
                     ) {
                         Text(
-                            color = Color.White,
-                            text = "Google 로 로그인 하기"
+                            style = LocalTextStyle.current.copy(color = Color.White),
+                            text = "Login with Google"
                         )
                     }
                 }
