@@ -46,15 +46,15 @@ import team.talibity.app.ui.theme.Primary
 import team.talibity.app.ui.theme.PrimaryDark
 
 private val itemsList = listOf(
-    Item(1, "운동", R.drawable.awsersize),
-    Item(2, "게임", R.drawable.game),
-    Item(3, "요리", R.drawable.cook),
-    Item(4, "음악", R.drawable.music),
-    Item(5, "학문", R.drawable.book),
-    Item(6, "디자인", R.drawable.design),
-    Item(7, "프로그래밍", R.drawable.dev),
-    Item(8, "데이터 사이언스", R.drawable.data),
-    Item(9, "커리어", R.drawable.car)
+    Item(1, "Exercise", R.drawable.awsersize),
+    Item(2, "Game", R.drawable.game),
+    Item(3, "Cooking", R.drawable.cook),
+    Item(4, "Music", R.drawable.music),
+    Item(5, "Study", R.drawable.book),
+    Item(6, "Design", R.drawable.design),
+    Item(7, "Programming", R.drawable.dev),
+    Item(8, "Data Science", R.drawable.data),
+    Item(9, "Career", R.drawable.car)
 ).chunked(3)
 
 class FilterActivity : ComponentActivity() {
@@ -89,7 +89,7 @@ class FilterActivity : ComponentActivity() {
                             modifier = Modifier.clickable { finish() }
                         )
                         Text(
-                            text = "카테고리",
+                            text = "Category",
                             style = LocalTextStyle.current.copy(color = Color.White)
                         )
                         Icon(
