@@ -140,7 +140,7 @@ class DetailActivity : ComponentActivity() {
                             )
                         )
                         Text(
-                            text = "Category: Baking - 2 hours ago",
+                            text = "Category: Cooking - 2 hours ago",
                             style = LocalTextStyle.current.copy(
                                 color = Color.Gray
                             )
